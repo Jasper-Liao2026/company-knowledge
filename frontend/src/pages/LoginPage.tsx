@@ -6,9 +6,11 @@ import {
     Input,
     message,
 } from 'antd';
+import BrandLogo from '../components/BrandLogo';
 import {useNavigate} from 'react-router-dom'    
-import  BrandLogo  from '../components/BrandLogo'
+import { authapi} from '../api/index.js';
 function LoginPage() {
+    const navigate = useNavigate();
     const [loading,setLoading] = useState(false);
   return (
     <div className="kh-login">
@@ -24,8 +26,14 @@ function LoginPage() {
           username: 'user', 
           password: '123456',
         }}
-        onFinish={async ()=>{
+        onFinish={async (values:{username:string,password:string})=>{
             setLoading(true);
+            try{
+                const result = await authapi.login(values.username,values.password)
+                navigate('/');
+            }catch(err){
+                
+            }
         }}
         >
         
