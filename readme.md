@@ -26,6 +26,14 @@ ai agent 全栈项目
     - ui 组件库
     antd 企业级 后台管理系统打造
     - nestjs login api token
+    
+## ORM 
+Entity(实体) 是 ORM 中映射数据库表的类，类的实例对应表中的一行记录
+- @nestjs/config
+- @nestjs/typeorm
+    useFactory 从环境变量中读取数据库配置
+    注册实体类 entities:[UserEntity]
+
 
 ### 项目初始化
 - react + ts 前端
